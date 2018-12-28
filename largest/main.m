@@ -7,11 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
-
+NSNumber * large(NSArray * unsort);
 int main(int argc, const char * argv[]) {
+
+    
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        //NSString * large;
+        NSArray * sort = @[@2, @44, @11,@55];
+        NSNumber*l = large(sort);
+        NSLog(@"Hello, World! %@",l);
     }
+    
     return 0;
+}
+NSNumber* large(NSArray * unsort){
+    NSNumber*l = [unsort objectAtIndex:0];
+    for(int i =1;i<4; i++){
+        
+        l=([[unsort objectAtIndex:i]integerValue] > [l integerValue] ?[unsort objectAtIndex:i]:l);
+    }
+    return l;
 }
